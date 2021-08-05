@@ -1,3 +1,18 @@
 {
-  "extends": ["next", "next/core-web-vitals"]
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+
+  "extends": ["next", "next/core-web-vitals","plugin:prettier/recommended"],
+  "rules": {
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
 }
