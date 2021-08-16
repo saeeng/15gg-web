@@ -6,7 +6,6 @@ const SearchBar = () => {
   const [smnName, setSmnName] = useState<string>('고수달');
   const handleSubmit = (event) => {
     Router.push(`/summoner/userName=${smnName}`);
-    alert('A name was submitted: ');
     event.preventDefault();
   };
   const handleChange = ({ target: { value } }) => setSmnName(value);

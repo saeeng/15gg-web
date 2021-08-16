@@ -1,24 +1,32 @@
 import { useRouter } from 'next/router';
+import { Container } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
-const Comment = () => {
-  const [userName, setUserName] = useState<string>('');
-  const router = useRouter();
-  const smnName: string = router.query['smnName'] as string;
-  const smnNameRegex = /(?<=userName=).*/;
+import Header from '../../../components/Header';
+
+import SmnInfo from '../../../components/SmnInfo';
+import axios from 'axios';
+const SummonerPage = (summoner: any) => {
+  const [user, setUser] = useState<any>(summoner.summoner);
   useEffect(() => {
-    // 브라우저 API를 이용하여 문서 타이틀을 업데이트합니다.
-    if (smnName) {
-      const userNameMathces = smnName.match(smnNameRegex);
-      console.log(userNameMathces);
-      setUserName(userNameMathces[0]);
-      console.log(`You clicked ${smnName} times`);
-    }
+    console.log(user);
   });
   return (
     <>
-      d<h1>smnName: {userName}</h1>
+      <Header />
+      <Container maxWidth="md">
+        <SmnInfo summoner={user.summoner}></SmnInfo>
+      </Container>
     </>
   );
 };
+SummonerPage.getInitialProps = async (ctx) => {
+  const userName = ctx.query.smnName;
+  const smnNameRegex = /(?<=userName=).*/;
+  const userNameMathces = userName.match(smnNameRegex);
+  const { data: summoner } = await axios.get(
+    `http://localhost:8000/api/test/${encodeURI(userNameMathces)}`,
+  );
+  return { summoner };
+};
 
-export default Comment;
+export default SummonerPage;
