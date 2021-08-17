@@ -14,7 +14,7 @@ const SummonerPage = (summoner: any) => {
     <>
       <Header />
       <Container maxWidth="md">
-        <SmnInfo summoner={user.summoner}></SmnInfo>
+        <SmnInfo summoner={user.summoner} league={user.league}></SmnInfo>
       </Container>
     </>
   );
