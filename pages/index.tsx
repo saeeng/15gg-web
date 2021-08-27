@@ -1,27 +1,23 @@
-import { Typography, Container, TextField } from '@material-ui/core';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { Typography, Container } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import React from 'react';
+import SearchForm from '../components/SearchForm';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-    },
-  }),
-);
 export default function Home() {
-  const classes = useStyles();
   return (
     <Container maxWidth="sm">
-      <Typography variant="h1" align="center" color="primary">
-        15.gg
-      </Typography>
-      <form noValidate>
-        <TextField id="standard-basic" label="Standard" variant="outlined" />
-      </form>
+      <Grid
+        style={{ height: '100vh' }}
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Typography variant="h1" align="center" color="primary">
+          15.GG
+        </Typography>
+        <SearchForm />
+      </Grid>
     </Container>
   );
 }

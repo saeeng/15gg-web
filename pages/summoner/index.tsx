@@ -1,25 +1,7 @@
 import Link from 'next/link';
 
 function Home() {
-  return (
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/about">
-          <a>About Us</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/blog/hello-world">
-          <a>Blog Post</a>
-        </Link>
-      </li>
-    </ul>
-  );
+  return <ul>소환사 검색 기능입니다.</ul>;
 }
 
 export default Home;
